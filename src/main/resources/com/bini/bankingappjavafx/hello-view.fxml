@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="anchorPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bini.bankingappjavafx.HelloController">
+   <children>
+      <PieChart id="chart" fx:id="chart" layoutX="282.0" layoutY="146.0" prefHeight="383.0" prefWidth="538.0" styleClass="barChart" stylesheets="@style.css" title="test" />
+      <Pane fx:id="Menu" layoutX="3.0" prefHeight="600.0" prefWidth="211.0" styleClass="menuPane" stylesheets="@style.css">
+         <children>
+            <Button layoutX="6.0" layoutY="206.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" styleClass="menuButtons" stylesheets="@style.css" text="Button" />
+            <Button layoutX="6.0" layoutY="273.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" styleClass="menuButtons" stylesheets="@style.css" text="Button" />
+            <Label id="menuBar" alignment="CENTER" layoutX="6.0" layoutY="14.0" prefHeight="54.0" prefWidth="200.0" styleClass="menuBar" stylesheets="@style.css" text="Menu" textAlignment="CENTER">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Button fx:id="Input" layoutX="6.0" layoutY="142.0" mnemonicParsing="false" onAction="#onInputClicked" prefHeight="54.0" prefWidth="200.0" styleClass="menuButtons" text="Input">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Button>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" layoutX="230.0" layoutY="14.0" prefHeight="54.0" prefWidth="656.0" styleClass="overview" stylesheets="@style.css" text="Overview" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
