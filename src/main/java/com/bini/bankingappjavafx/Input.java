@@ -8,6 +8,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class Input {
     @FXML
     TextField Spending = new TextField();
@@ -20,14 +22,39 @@ public class Input {
     @FXML
     ListView<String> Overview = new ListView<>(spendings);
 
+    HelloController chartData = new HelloController();
+
+    //public double getAmount(){
+
+    //}
+
 
     @FXML
-    public void onSubmitButtonClicked() {
-        String budget = Spending.getText();
-        Display.setText(budget);
-        Spending.setText("");
+    public void onSubmitButtonClicked() throws NumberFormatException{
+        try {
+            String budget = Spending.getText();
+            Display.setText(budget);
+            chartData.setAmount(Double.parseDouble(budget));
+            Spending.setText("");
+            System.out.println(budget);
+
+
+        }catch (NumberFormatException e){
+            Spending.setText("Enter a valid Number!");
+        }
+
+
 
     }
+    @FXML
+    public void onBackButtonPressed() throws IOException {
+        HelloApplication sceneChange = new HelloApplication();
+        sceneChange.changeScene("hello-view.fxml");
+    }
+
+
+
+
 
 
 }

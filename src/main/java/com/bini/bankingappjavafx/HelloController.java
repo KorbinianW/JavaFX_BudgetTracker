@@ -10,20 +10,31 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class HelloController /*implements Initializable*/ {
 
-
+    int budget = 5000;
+    double amount;
+    public void setAmount(double amount){
+        this.amount = amount;
+        System.out.println(amount + ": 1");
+    }
 
     @FXML
     PieChart chart;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<PieChart.Data> datenliste = FXCollections.observableArrayList(
-                new PieChart.Data("Test", 50),
-                new PieChart.Data("Test2", 50)
-        );
+    ObservableList<PieChart.Data> datenliste = FXCollections.observableArrayList(
+            new PieChart.Data("Budget", 5000)
+    );
+
+    //@Override
+    //public void initialize(URL url, ResourceBundle resourceBundle) {
+    //    chart.getData().addAll(datenliste);
+    //}
+
+    public void onRefreshButtonClicked(){
+        datenliste.add(new PieChart.Data("Test", amount));
         chart.getData().addAll(datenliste);
+        System.out.println(amount);
     }
 
     @FXML

@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="anchorPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bini.bankingappjavafx.HelloController">
    <children>
-      <PieChart id="chart" fx:id="chart" layoutX="282.0" layoutY="146.0" prefHeight="383.0" prefWidth="538.0" styleClass="barChart" stylesheets="@style.css" title="test" />
+      <PieChart id="chart" fx:id="chart" layoutX="289.0" layoutY="88.0" prefHeight="383.0" prefWidth="538.0" styleClass="barChart" stylesheets="@style.css" title="test" />
       <Pane fx:id="Menu" layoutX="3.0" prefHeight="600.0" prefWidth="211.0" styleClass="menuPane" stylesheets="@style.css">
          <children>
             <Button layoutX="6.0" layoutY="206.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="200.0" styleClass="menuButtons" stylesheets="@style.css" text="Button" />
@@ -32,5 +32,6 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Button layoutX="481.0" layoutY="533.0" mnemonicParsing="false" onAction="#onRefreshButtonClicked" prefHeight="36.0" prefWidth="155.0" text="Refresh" />
    </children>
 </AnchorPane>
