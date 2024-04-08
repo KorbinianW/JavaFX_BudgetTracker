@@ -3,29 +3,25 @@ package com.bini.bankingappjavafx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class HelloController {
-
     static double amount;
-
+    static double budget = 5000;
 
     @FXML
     PieChart chart;
 
     ObservableList<PieChart.Data> datenliste = FXCollections.observableArrayList(
-            new PieChart.Data("Budget", 5000)
-    );
 
+    );
 
     @FXML
     public void onRefreshButtonClicked() {
-        datenliste.add(new PieChart.Data("Test", amount));
+        datenliste.add(new PieChart.Data("Test", toPercent(amount, budget)));
+        datenliste.add(new PieChart.Data("Budget", 100 - toPercent(amount, budget)));
         chart.getData().addAll(datenliste);
     }
 
@@ -35,5 +31,8 @@ public class HelloController {
         sceneChange.changeScene("input-view.fxml");
     }
 
+    public double toPercent(double a, double b) {
+        return (a / b) * 100;
+    }
 
 }
