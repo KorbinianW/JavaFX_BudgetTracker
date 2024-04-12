@@ -1,5 +1,6 @@
 package com.bini.bankingappjavafx;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,21 +9,21 @@ import javafx.scene.chart.PieChart;
 import java.io.IOException;
 
 public class HelloController {
-    static double amount;
-    static double budget = 5000;
+    Json json = new Json();
 
     @FXML
     PieChart chart;
-
-    ObservableList<PieChart.Data> datenliste = FXCollections.observableArrayList(
+    ObservableList<PieChart.Data> datalist = FXCollections.observableArrayList(
 
     );
 
+
     @FXML
-    public void onRefreshButtonClicked() {
-        datenliste.add(new PieChart.Data("Test", toPercent(amount, budget)));
-        datenliste.add(new PieChart.Data("Budget", 100 - toPercent(amount, budget)));
-        chart.getData().addAll(datenliste);
+    public void onRefreshButtonClicked() throws Exception {
+//        datalist.add(new PieChart.Data(Data.getName(), toPercent(Data.getAmount(), Data.budget)));
+//        datalist.add(new PieChart.Data("Budget", 100 - toPercent(Data.getAmount(), Data.budget)));
+//        chart.getData().addAll(datalist);
+        json.toJson();
     }
 
     @FXML

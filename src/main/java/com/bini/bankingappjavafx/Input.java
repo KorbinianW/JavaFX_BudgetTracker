@@ -3,6 +3,7 @@ package com.bini.bankingappjavafx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -12,23 +13,34 @@ public class Input {
     @FXML
     TextField Spending = new TextField();
     @FXML
+    TextField Name = new TextField();
+    @FXML
     TextField Display = new TextField();
+    @FXML
+    PieChart testChart = new PieChart();
     @FXML
     ObservableList<String> spendings = FXCollections.observableArrayList("Test1", "Test2", "Test3");
     @FXML
     ListView<String> Overview = new ListView<>(spendings);
 
+    ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
+
+    Data data = new Data();
 
     @FXML
     public void onSubmitButtonClicked() throws NumberFormatException {
         try {
             String budget = Spending.getText();
             Display.setText(budget);
-            HelloController.amount = Double.parseDouble(budget);
+            data.setAmount(Double.parseDouble(budget));
+            data.setName(Name.getText());
+            list.add(new PieChart.Data(Name.getText(), Double.parseDouble(budget)));
+            testChart.setData(list);
+            Name.setText("");
             Spending.setText("");
 
         } catch (NumberFormatException e) {
-            Spending.setText("Enter a valid Number!");
+            Spending.setPromptText("Enter a valid Number!");
         }
     }
 
@@ -37,6 +49,8 @@ public class Input {
         HelloApplication sceneChange = new HelloApplication();
         sceneChange.changeScene("hello-view.fxml");
     }
+
+
 
 
 }

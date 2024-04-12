@@ -5,6 +5,7 @@ module com.bini.bankingappjavafx {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires com.fasterxml.jackson.databind;
 
     opens com.bini.bankingappjavafx to javafx.fxml;
     exports com.bini.bankingappjavafx;
