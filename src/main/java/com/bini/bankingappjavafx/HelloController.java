@@ -17,6 +17,9 @@ public class HelloController {
 
     );
 
+    public HelloController() throws IOException {
+    }
+
 
     @FXML
     public void onRefreshButtonClicked() throws Exception {

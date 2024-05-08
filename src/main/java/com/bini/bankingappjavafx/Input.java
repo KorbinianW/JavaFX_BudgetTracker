@@ -1,5 +1,6 @@
 package com.bini.bankingappjavafx;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +11,9 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class Input {
+    public Input() throws IOException {
+
+    }
     @FXML
     TextField Spending = new TextField();
     @FXML
@@ -27,6 +31,9 @@ public class Input {
 
     Data data = new Data();
 
+
+
+    Json json = new Json();
     @FXML
     public void onSubmitButtonClicked() throws NumberFormatException {
         try {
@@ -39,8 +46,12 @@ public class Input {
             Name.setText("");
             Spending.setText("");
 
-        } catch (NumberFormatException e) {
+            json.toFile();
+
+        } catch (NumberFormatException e){
             Spending.setPromptText("Enter a valid Number!");
+        }catch (Exception e){
+
         }
     }
 
@@ -48,9 +59,6 @@ public class Input {
     public void onBackButtonPressed() throws IOException {
         HelloApplication sceneChange = new HelloApplication();
         sceneChange.changeScene("hello-view.fxml");
+        json.bufferedWriter.close();
     }
-
-
-
-
 }

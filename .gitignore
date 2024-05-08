@@ -36,3 +36,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+### Custom ###
+\BankingAppJavaFX\src\main\resources\com\bini\bankingappjavafx\spendingsData.txt
+\BankingAppJavaFX\src\main\java\com\bini\bankingappjavafx\Pathname.java
